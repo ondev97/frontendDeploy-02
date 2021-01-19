@@ -71,7 +71,7 @@ export default function Header({acDetails}) {
                         <button>LOG IN</button>
                     </Link>
                     <Link to="/stsignup">
-                        <button>SIGN UP</button>
+                        <button>REGISTER</button>
                     </Link>
                 </div>
             )
