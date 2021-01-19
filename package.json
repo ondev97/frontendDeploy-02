@@ -1,6 +1,6 @@
 {
   "name": "lms",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "^23.1.0",
@@ -30,10 +30,13 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
+    "generate-build-version": "node generate-build-version",
+    "prebuild": "npm run generate-build-version",
     "start": "node server.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
+    
   },
   "eslintConfig": {
     "extends": [

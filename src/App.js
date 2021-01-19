@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 import ReactNotification  from 'react-notifications-component'
 import 'react-notifications-component/dist/theme.css'
 import Footer from './components/Footer';
+import CacheBuster from './CacheBuster';
 
 function App() {
 
@@ -46,22 +47,34 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <ReactNotification isMobile='true'/>
-        <Router>
-            {
-              headerRoute()
-            } 
-            <Switch>
-              {
-                routes.map((route,index) => <Route path={route.path} key={index} exact={route.exact} component={route.components} />)
-              }
-            </Switch>
-            {
-              footerRout()
-            }
-        </Router>
-    </div>
+    <CacheBuster>
+      {({ loading, isLatestVersion, refreshCacheAndReload }) => {
+        if (loading) return null;
+        if (!loading && !isLatestVersion) {
+          // You can decide how and when you want to force reload
+          refreshCacheAndReload();
+        }
+
+        return (
+          <div className="App">
+            <ReactNotification isMobile='true'/>
+              <Router>
+                  {
+                    headerRoute()
+                  } 
+                  <Switch>
+                    {
+                      routes.map((route,index) => <Route path={route.path} key={index} exact={route.exact} component={route.components} />)
+                    }
+                  </Switch>
+                  {
+                    footerRout()
+                  }
+              </Router>
+          </div>
+        );
+    }}
+    </CacheBuster>
   );
 }
 
