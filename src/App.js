@@ -7,7 +7,6 @@ import { useEffect, useState } from 'react';
 import ReactNotification  from 'react-notifications-component'
 import 'react-notifications-component/dist/theme.css'
 import Footer from './components/Footer';
-import CacheBuster from './CacheBuster';
 
 function App() {
 
