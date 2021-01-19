@@ -46,14 +46,14 @@ function App() {
     }
   }
 
-  return (
+  /*return (
     <CacheBuster>
       {({ loading, isLatestVersion, refreshCacheAndReload }) => {
         if (loading) return null;
         if (!loading && !isLatestVersion) {
           // You can decide how and when you want to force reload
           refreshCacheAndReload();
-        }
+        }*/
 
         return (
           <div className="App">
@@ -73,9 +73,9 @@ function App() {
               </Router>
           </div>
         );
-    }}
+    /*}}
     </CacheBuster>
-  );
+  );*/
 }
 
 export default App;
